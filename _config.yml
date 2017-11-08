@@ -1,7 +1,9 @@
 title: Definiti
 description: Definitively your model Definition
-theme: jekyll-theme-minimal
-show_downloads: false
+theme: minima
+baseurl: "/"
+url: "https://definiti.github.io"
+
 github:
   repository_url: https://github.com/definiti/definiti
   repository_name: Definiti
@@ -9,16 +11,8 @@ github:
   owner_url: https://github.com/definiti
   owner_name: Definiti
 
-defaults:
-  - scope:
-      path: ""
-    values:
-      layout: "default"
-  - scope:
-      path: "public/images"
-    values:
-      image: true
-  - scope:
-      path: "public/styles"
-    values:
-      style: true
+# Build settings
+markdown: kramdown
+
+sass:
+    sass_dir: _sass

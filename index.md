@@ -1,6 +1,7 @@
 ---
+layout: default
 ---
 
-# Definiti
+# Welcome to Definiti.
 
-This is just a test.
+Documentation will come soon.
