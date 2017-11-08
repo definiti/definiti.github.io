@@ -1,0 +1,22 @@
+{
+  "left": [
+    {
+      "name": "Overview",
+      "items": [
+        {"name": "Home", "path": "/"},
+        {"name": "Roadmap", "path": "/roadmap"}
+      ]
+    },
+    {
+      "name": "Projects",
+      "items": [
+        {"name": "Definiti (core)", "path": "/project/core"},
+        {"name": "Scala model", "path": "/project/scala-model"},
+        {"name": "Spray json", "path": "/project/spray-json"},
+        {"name": "Typescript model", "path": "/project/ts-model"},
+        {"name": "Form validation", "path": "/project/form-validations"},
+        {"name": "PUML diagrams", "path": "/project/puml"}
+      ]
+    }
+  ]
+}

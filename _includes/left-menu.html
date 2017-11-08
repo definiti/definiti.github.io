@@ -1,0 +1,15 @@
+<nav class="left-menu">
+    {% for menu in site.data.menu.left %}
+    <div class="category">
+        <h4>{{ menu.name }}</h4>
+
+        <div class="category-content">
+            <ul>
+                {% for item in menu.items %}
+                <li><a href="{{ item.path }}">{{ item.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endfor %}
+</nav>

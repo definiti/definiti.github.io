@@ -1,1 +1,24 @@
-theme: jekyll-theme-midnight
+title: Definiti
+description: Definitively your model Definition
+theme: jekyll-theme-minimal
+show_downloads: false
+github:
+  repository_url: https://github.com/definiti/definiti
+  repository_name: Definiti
+  project_tagline: Definitively your model Definition
+  owner_url: https://github.com/definiti
+  owner_name: Definiti
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+  - scope:
+      path: "public/images"
+    values:
+      image: true
+  - scope:
+      path: "public/styles"
+    values:
+      style: true
