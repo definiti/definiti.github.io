@@ -6,6 +6,13 @@
         {"name": "Home", "path": "/"},
         {"name": "Roadmap", "path": "/roadmap"}
       ]
+    },
+    {
+      "name": "Documentation",
+      "items": [
+        {"name": "Getting start", "path": "/doc/getting-start"},
+        {"name": "Language reference", "path": "/doc/language"}
+      ]
     }
   ]
 }

@@ -8,9 +8,15 @@
   }
 }
 
+@for $i from 1 through 20 {
+  .col-#{$i * 50} {
+    width: #{$i * 50};
+  }
+}
+
 .full-height {
   height: 100vh;
-  overflow: scroll;
+  overflow-y: auto;
 }
 
 .main-title {
@@ -28,4 +34,29 @@
 
 .content {
   padding: 15px;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 16px;
+  font-weight: 600;
 }

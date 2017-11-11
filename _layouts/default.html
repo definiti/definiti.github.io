@@ -3,18 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
-  <title>{{ site.title | default: site.github.repository_name }} by {{ site.github.owner_name }}</title>
+  {% if page.title %}
+    <title>{{page.title}} &bull; Definiti</title>
+  {% else %}
+    <title>Definiti &bull; Definitively your project Definition</title>
+  {% endif %}
+  <title>{{ page.title | default: site.github.repository_name }} by {{ site.github.owner_name }}</title>
   <link rel="stylesheet" href="{{ '/assets/main.css' }}">
   <link rel="stylesheet" href="{{ '/assets/styles.css' }}">
 </head>
 <body>
 <div class="row">
-  <div class="col-2 full-height">
+  <div class="col-200 full-height">
     {% include left-menu.html %}
   </div>
-  <div class="col-8 full-height">
+  <div class="col-1 full-height">
     <header class="main-title">
-      <h1>Definiti <small>Definitively your project Definition</small></h1>
+      {% if page.title %}
+        <h1>{{page.title}}</h1>
+      {% else %}
+        <h1>Definiti <small>Definitively your project Definition</small></h1>
+      {% endif %}
     </header>
 
     <section class="content">
