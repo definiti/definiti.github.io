@@ -10,7 +10,7 @@
 
 @for $i from 1 through 20 {
   .col-#{$i * 50} {
-    width: #{$i * 50};
+    width: #{$i * 50}px;
   }
 }
 

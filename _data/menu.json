@@ -3,15 +3,21 @@
     {
       "name": "Overview",
       "items": [
-        {"name": "Home", "path": "/"},
-        {"name": "Roadmap", "path": "/roadmap"}
+        {"name": "Home", "path": "/"}
       ]
     },
     {
-      "name": "Documentation",
+      "name": "Language",
       "items": [
         {"name": "Getting start", "path": "/doc/getting-start"},
         {"name": "Language reference", "path": "/doc/language"}
+      ]
+    },
+    {
+      "name": "Project",
+      "items": [
+        {"name": "The Definiti Project", "path": "/project"},
+        {"name": "Roadmap", "path": "/project/roadmap"}
       ]
     }
   ]
