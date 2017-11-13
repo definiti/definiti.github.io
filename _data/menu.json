@@ -19,6 +19,19 @@
         {"name": "The Definiti Project", "path": "/project"},
         {"name": "Roadmap", "path": "/project/roadmap"}
       ]
+    },
+    {
+      "name": "Github projects",
+      "items": [
+        {"name": "Organization", "path": "https://github.com/definiti", "blank": true},
+        {"name": "Core", "path": "https://github.com/definiti/definiti-core", "blank": true},
+        {"name": "Samples", "path": "https://github.com/definiti/samples", "blank": true},
+        {"name": "Definiti API", "path": "https://github.com/definiti/definiti-api", "blank": true},
+        {"name": "Scala generator", "path": "https://github.com/definiti/definiti-scala-model", "blank": true},
+        {"name": "TypeScript generator", "path": "https://github.com/definiti/definiti-ts-model", "blank": true},
+        {"name": "Command-line tool", "path": "https://github.com/definiti/definiti", "blank": true},
+        {"name": "Site", "path": "https://github.com/definiti/definiti.github.io", "blank": true}
+      ]
     }
   ]
 }

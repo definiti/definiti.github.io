@@ -1,9 +1,30 @@
 ---
-title: Definiti <small>Definitively your project Definition</small>
+title: Definiti
 layout: default
 ---
 
+<div class="lead" markdown="1">
+
+# A descriptive language for your project
+
+> Definiti is a declarative language to define and explicit rules and constraints of your domain.
+
+An important part of your work is to make sure your domain rules and constraints remains valid.
+Does your favorite language help you doing so?
+
+What if you could have a language helping you **describing** your **domain**?
+What if it was **designed** to do what you want to do: to **verify** your **domain definition**?
+
+It is the challenge of *Definiti*:
+
+* Designed to help you writing the **domain definition**
+* Compiled to your favorite language so you focus on what really needs attention
+
+</div>
+
 # A descriptive language
+
+Just describe what you want to do.
 
 ```
 package my.event
@@ -46,6 +67,8 @@ type Period {
 
 # Compiling into other languages
 
+Definiti will compile into your favorite language.
+
 ```scala
 // Language: Scala
 
@@ -84,6 +107,8 @@ package object event {
 
 # So you can use them as you want
 
+Use it with your favorite framework, library and everything you already use.
+
 ```scala
 // Language: scala, with scalatest
 
@@ -118,6 +143,29 @@ class MyEventTest extends FlatSpec with Matchers {
 }
 ```
 
-# Learn how to use it
+# Getting start
 
-[Getting start](/doc/getting-start) and see [Language reference](/doc/language).
+```bash
+# Download sample project
+$ git clone -b getting-start https://github.com/definiti/samples.git getting-start
+
+# Go to the project folder
+$ cd getting-start
+
+# Run the project, it will build the compiler and build the project
+$ nut run
+```
+
+See the complete [Getting start](/doc/getting-start) guide for more information.
+
+Afterward, see the [Language reference](/doc/language).
+
+# See us on Github
+
+All the sources are available on Github.
+
+Check the [core compiler](https://github.com/definiti/definiti-core),
+[samples](https://github.com/definiti/samples)
+and the [Definiti api](https://github.com/definiti/definiti-api).
+
+If you want to improve this project, do not hesitate to fork any repository and write issues.
