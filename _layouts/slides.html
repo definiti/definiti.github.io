@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="{{ site.lang | default: " en-US" }}">
+<head>
+  <meta charset="utf-8">
+  {% if page.title %}
+  <title>{{page.title}} &bull; Definiti</title>
+  {% else %}
+  <title>Definiti &bull; Definitively your project Definition</title>
+  {% endif %}
+  <link rel="stylesheet" href="{{ '/assets/styles.css' }}">
+</head>
+<body>
+{{content}}
+<script src="/assets/remark.js"></script>
+<script>remark.create()</script>
+</body>
+</html>
