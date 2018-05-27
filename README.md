@@ -101,7 +101,6 @@ Write your first **Definiti** file in `src/main/definiti/blog.def` \(we will com
 {% code-tabs %}
 {% code-tabs-item title="src/main/definiti/blog.def" %}
 ```text
-
 package my.blog
 
 type BlogArticle {
@@ -135,7 +134,6 @@ package object blog {
     val verification: Verification[BlogArticle] = Verification.none[BlogArticle]
   }
 }
-
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
