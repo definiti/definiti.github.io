@@ -31,7 +31,22 @@ To start using **Definiti**, create a `nut.yml` file:
 {% code-tabs %}
 {% code-tabs-item title="nut.yml" %}
 ```yaml
-syntax_version: "7"project_name: nutdocker_image: definiti/definiti:0.3.0-SNAPSHOTmacros:  run:    usage: Run the compiler with configuration from `definiti.conf`volumes:  main:    host_path: .    container_path: /definiticontainer_working_directory: /definitiwork_in_project_folder_as: /definiti
+syntax_version: "7"
+project_name: nut
+
+docker_image: definiti/definiti:0.3.0-SNAPSHOT
+
+macros:
+  run:
+    usage: Run the compiler with configuration from `definiti.conf`
+
+volumes:
+  main:
+    host_path: .
+    container_path: /definiti
+
+container_working_directory: /definiti
+work_in_project_folder_as: /definiti
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
@@ -41,7 +56,42 @@ Then, create the `definiti.conf` file \(we will explain it later\):
 {% code-tabs %}
 {% code-tabs-item title="definiti.conf" %}
 ```text
-definiti {  dependencies = [    # Core compiler version 0.3.0-SNAPSHOT    "io.github.definiti:core_2.12:0.3.0-SNAPSHOT",        # Scala files (model definition)    "io.github.definiti:scala-model_2.12:0.3.0-SNAPSHOT"  ]  api {    # Version of the API    version = "0.3.0-SNAPSHOT"  }  core {    # Where are definiti files located?    # Here, we use the same structure than maven.    source = "src/main/definiti"        # What generators should we use?    generators = [      # Scala model generator      "definiti.scalamodel.plugin.ScalaModelGeneratorPlugin"    ]        # Kept empty because not needed - describe further    parsers = []    validators = []    flags = {}  }  # Specific configuration for scala-model plugin  scalamodel {    destination = "src/main/scala-definiti"  }}
+definiti {
+  dependencies = [
+    # Core compiler version 0.3.0-SNAPSHOT
+    "io.github.definiti:core_2.12:0.3.0-SNAPSHOT",
+
+    # Scala files (model definition)
+    "io.github.definiti:scala-model_2.12:0.3.0-SNAPSHOT"
+  ]
+
+  api {
+    # Version of the API
+    version = "0.3.0-SNAPSHOT"
+  }
+
+  core {
+    # Where are definiti files located?
+    # Here, we use the same structure than maven.
+    source = "src/main/definiti"
+
+    # What generators should we use?
+    generators = [
+      # Scala model generator
+      "definiti.scalamodel.plugin.ScalaModelGeneratorPlugin"
+    ]
+
+    # Kept empty because not needed - describe further
+    parsers = []
+    validators = []
+    flags = {}
+  }
+
+  # Specific configuration for scala-model plugin
+  scalamodel {
+    destination = "src/main/scala-definiti"
+  }
+}
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
@@ -51,7 +101,8 @@ Write your first **Definiti** file in `src/main/definiti/blog.def` \(we will com
 {% code-tabs %}
 {% code-tabs-item title="src/main/definiti/blog.def" %}
 ```text
-package my.blog
+
+package my.blog
 
 type BlogArticle {
   title: String
@@ -73,7 +124,18 @@ You will see a new directory: `src/main/scala-definiti` with the most interestin
 {% code-tabs %}
 {% code-tabs-item title="src/main/scala-definiti/my/blog/blog.scala" %}
 ```scala
-package myimport definiti.native._import java.time.LocalDateTimepackage object blog {  case class BlogArticle(title: String, description: String, date: LocalDateTime)  object BlogArticle {    val verification: Verification[BlogArticle] = Verification.none[BlogArticle]  }}
+package my
+
+import definiti.native._
+import java.time.LocalDateTime
+
+package object blog {
+  case class BlogArticle(title: String, description: String, date: LocalDateTime)
+  object BlogArticle {
+    val verification: Verification[BlogArticle] = Verification.none[BlogArticle]
+  }
+}
+
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
@@ -88,7 +150,8 @@ package my.app
 import java.time.LocalDateTime
 import my.blog.BlogArticle
 
-object App {
+
+object App {
   def main(args: Array[String]): Unit = {
     val firstArticle = BlogArticle(
       title = "My first article",
