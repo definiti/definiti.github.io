@@ -1,0 +1,31 @@
+@startuml
+package "Your application" {
+  package "Server in Scala" {
+    [Scala sources] as scalaSource
+  }
+
+  package "Client in TypeScript" {
+    [TypeScript sources] as tsSource
+  }
+
+  package "Definiti module" {
+    [Definiti sources] as definitiSources
+    () "Definiti compiler" as definitiCompiler
+    [Compiled Scala files] as definitiScala
+    [Compiled TypeScript files] as definitiTypescript
+    [Generated glossary] as definitiGlossary
+  }
+
+  actor "Project member" as member
+}
+
+definitiSources --> definitiCompiler
+definitiCompiler --> definitiScala
+definitiCompiler --> definitiTypescript
+definitiCompiler --> definitiGlossary
+
+definitiScala <.. scalaSource: use
+definitiTypescript <.. tsSource: use
+
+definitiGlossary <.. member: access
+@enduml
