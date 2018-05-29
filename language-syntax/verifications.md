@@ -92,11 +92,11 @@ verification PositiveNumber {
 }
 ```
 
-Now, your message can have more information. You can give has many parameters as you want. The ok instruction does not accept any parameter \(the value is valid, that's all\) but `ko` instruction requires as many parameters as the message \(except the message code\) and in the declared type.
+Now, your message can have more information. You can give has many parameters as you want. The `ok` instruction does not accept any parameter \(the value is valid, that's all\) but `ko` instruction requires as many parameters as the message \(except the message code\) and in the declared types.
 
 You can see that the first parameter is a message code and not the message itself. To enforce the usage of a internationalization system, **Definiti** does no string interpolation for verifications.
 
-Message parameter types can be any type, native or project types. The responsability of converting them into strings is not managed by **Definiti**. Also, it ensure you to give the right type and right number of types.
+Message parameter types can be any type, native or project types. The responsibility of converting them into strings is not managed by **Definiti**. Also, it ensures you to give the right type and right number of types.
 
 ### Code parameters
 
@@ -116,7 +116,7 @@ verification IsBetween(min: Number, max: Number) {
 }
 ```
 
-The parameters `min` and `max` are defined for the verification and can be used inside the function. You can use them in the condition as weel as the `ko` instruction. It is just parameters like any other.
+The parameters `min` and `max` are defined for the verification and can be used inside the function. You can use them in the condition as well as the `ko` instruction. It is just parameters like any other.
 
 ### Generics
 
@@ -141,6 +141,10 @@ verification IsNonEmptyString {
   "Please give a string"
   (value: String) => {…}
 }
+verification MaxLengthOf200 {
+  "You cannot give more than 200 characters"
+  (value: String) => {…}
+}
 verification IsBetween(min: Number, max: Number) {
   message("is.between", Number, Number)
   (value: Number) => {…}
@@ -154,8 +158,9 @@ verification IsPersonComplete {
 // Defined type
 // For a Person to be valid, it also need to respect verification IsPersonComplete
 type Person verifying IsPersonComplete {
-  // When erroneous, gives the message "Please give a string"
-  firstName: String verifying IsNonEmptyString
+  // When empty, gives the message "Please give a string"
+  // When length > 200, gives the message "You cannot give more than 200 characters"
+  firstName: String verifying IsNonEmptyString verifying MaxLengthOf200
   
   // When erroneous, gives the message "Please give a last name" because explicited here
   lastName: String verifying IsNonEmptyString("Please give a last name")
