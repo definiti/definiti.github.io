@@ -403,3 +403,32 @@ verification IsValidPeriod {
 
 All attributes are public and immutable.
 
+## Enumerations
+
+Like most language, Definiti has an enumeration system.
+
+You can describe them like:
+
+```text
+enum Days {
+  Monday
+  Tuesday
+  Wednesday
+  Thursday
+  Friday
+  Saturday
+  Sunday
+}
+```
+
+Line returns are not required. You can also write the enumeration like:
+
+```text
+enum Days {
+  Monday Tuesday Wednesday Thursday Friday
+  Saturday Sunday
+}
+```
+
+You can compare enumeration values between them but you cannot use them another way.
+
