@@ -22,11 +22,11 @@ The following diagram represents a simple workflow with **Definiti**:
 
 ## Getting started
 
-{% hint style="info" %}
-We use [nut](https://github.com/matthieudelaro/nut) to download and execute the **Definiti** compiler. Please refers to the documentation to install it on your environment.
+{% hint style="warning" %}
+We use docker to download and execute the **Definiti** compiler. Please refers to the documentation to install it on your environment.
 {% endhint %}
 
-To start using **Definiti**, execute the following command:
+To start using **Definiti**, execute the following installation command:
 
 ```bash
 bash -c "$(curl https://raw.githubusercontent.com/definiti/definiti/master/script/install.sh -sSf)"
@@ -56,8 +56,8 @@ type BlogArticle {
 
 Then compile it:
 
-```text
-$ nut run
+```bash
+./definiti
 ```
 
 You will see a new directory: `target/scalamodel` with the most interesting file `my/blog/blog.scala`:
