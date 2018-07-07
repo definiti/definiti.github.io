@@ -26,77 +26,19 @@ The following diagram represents a simple workflow with **Definiti**:
 We use [nut](https://github.com/matthieudelaro/nut) to download and execute the **Definiti** compiler. Please refers to the documentation to install it on your environment.
 {% endhint %}
 
-To start using **Definiti**, create a `nut.yml` file:
+To start using **Definiti**, execute the following command:
 
-{% code-tabs %}
-{% code-tabs-item title="nut.yml" %}
-```yaml
-syntax_version: "7"
-project_name: nut
-
-docker_image: definiti/definiti:0.3.0-SNAPSHOT
-
-macros:
-  run:
-    usage: Run the compiler with configuration from `definiti.conf`
-
-volumes:
-  main:
-    host_path: .
-    container_path: /definiti
-
-container_working_directory: /definiti
-work_in_project_folder_as: /definiti
+```bash
+bash -c "$(curl https://raw.githubusercontent.com/definiti/definiti/master/script/install.sh -sSf)"
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
-Then, create the `definiti.conf` file \(we will explain it later\):
+You will be ask for the version, the languages and the plugins to use. For instance, we will take following configuration:
 
-{% code-tabs %}
-{% code-tabs-item title="definiti.conf" %}
-```text
-definiti {
-  dependencies = [
-    # Core compiler version 0.3.0-SNAPSHOT
-    "io.github.definiti:core_2.12:0.3.0-SNAPSHOT",
+* version: _default_
+* languages: **scala**
+* plugins: _none_
 
-    # Scala files (model definition)
-    "io.github.definiti:scala-model_2.12:0.3.0-SNAPSHOT"
-  ]
-
-  api {
-    # Version of the API
-    version = "0.3.0-SNAPSHOT"
-  }
-
-  core {
-    # Where are definiti files located?
-    # Here, we use the same structure than maven.
-    source = "src/main/definiti"
-
-    # What generators should we use?
-    generators = [
-      # Scala model generator
-      "definiti.scalamodel.plugin.ScalaModelGeneratorPlugin"
-    ]
-
-    # Kept empty because not needed - describe further
-    parsers = []
-    validators = []
-    flags = {}
-  }
-
-  # Specific configuration for scala-model plugin
-  scalamodel {
-    destination = "src/main/scala-definiti"
-  }
-}
-```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
-
-Write your first **Definiti** file in `src/main/definiti/blog.def` \(we will come back to the syntax later\):
+Once done, write your first **Definiti** file in `src/main/definiti/blog.def` \(we will come back to the syntax later\):
 
 {% code-tabs %}
 {% code-tabs-item title="src/main/definiti/blog.def" %}
@@ -118,7 +60,7 @@ Then compile it:
 $ nut run
 ```
 
-You will see a new directory: `src/main/scala-definiti` with the most interesting file `my/blog/blog.scala`:
+You will see a new directory: `target/scalamodel` with the most interesting file `my/blog/blog.scala`:
 
 {% code-tabs %}
 {% code-tabs-item title="src/main/scala-definiti/my/blog/blog.scala" %}
